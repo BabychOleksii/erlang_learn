@@ -11,14 +11,6 @@
 % reverse([]) ->
 %   [].
 
-% len(L) ->
-%   len(L, 0).
-
-% len([_|T], I) ->
-%   len(T, I+1);
-% len([], I) ->
-%   I.
-
 reverse(L) ->
   reverse(L, []).
 
