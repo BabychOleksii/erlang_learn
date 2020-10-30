@@ -10,7 +10,7 @@ flatten([[H|T]|E]) ->
   flatten([H,T|E]);
 flatten([[]|T]) ->
   flatten(T);
-flatten([H|T]) ->
-  [H| flatten(T)];
 flatten([]) ->
-  [].
+  [];
+flatten([H|T]) ->
+  [H| flatten(T)].
