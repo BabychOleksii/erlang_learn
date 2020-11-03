@@ -7,12 +7,12 @@
 -export([is_palindrome/1]).
 
 is_palindrome(Asc) ->
-  Asc == reverse(Asc).
+  Asc == p05:reverse(Asc).
 
-reverse(Asc) ->
-  reverse(Asc, []).
+% reverse(Asc) ->
+%   reverse(Asc, []).
 
-reverse([H|T], Desc) ->
-  reverse(T, [H|Desc]);
-reverse([], Desc) ->
-  Desc.
+% reverse([H|T], Desc) ->
+%   reverse(T, [H|Desc]);
+% reverse([], Desc) ->
+%   Desc.
