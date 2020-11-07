@@ -6,11 +6,6 @@
 -module(p05).
 -export([reverse/1]).
 
-% reverse([H|T]) ->
-%   reverse(T) ++ [H];
-% reverse([]) ->
-%   [].
-
 reverse(L) ->
   reverse(L, []).
 
@@ -18,3 +13,9 @@ reverse([H|T], R) ->
   reverse(T, [H|R]);
 reverse([], R) ->
   R.
+
+% 
+% reverse([H|T]) ->
+%   reverse(T) ++ [H];
+% reverse([]) ->
+%   [].

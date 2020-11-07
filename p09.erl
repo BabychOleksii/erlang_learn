@@ -9,9 +9,9 @@
 pack(L) ->
   pack(L, []).
 
-pack([H,H|T],E) ->
-  pack([H|T],[H|E]);
-pack([H|T],E) ->
-  [[H|E]|pack(T,[])];
+pack([H,H|T], Acc) ->
+  pack([H|T], [H|Acc]);
+pack([H|T], Acc) ->
+  [[H|Acc]|pack(T, [])];
 pack([], _) ->
   [].

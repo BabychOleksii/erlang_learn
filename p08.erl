@@ -8,9 +8,9 @@
 
 compress([]) ->
   [];
-compress([A,A,A|T]) ->
-  compress([A,A|T]);
-compress([A,A|T]) ->
-  [A|compress(T)];
-compress([A|T]) ->
-  [A|compress(T)].
+compress([H,H,H|T]) ->
+  compress([H,H|T]);
+compress([H,H|T]) ->
+  [H|compress(T)];
+compress([H|T]) ->
+  [H|compress(T)].

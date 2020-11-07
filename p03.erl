@@ -8,12 +8,12 @@
 -module(p03).
 -export([element_at/2]).
 
-% element_at([H|_],1) ->
-%   H;
-% element_at([_|T],X) ->
-%   element_at(T,X-1);
-% element_at([], _) ->
-%   undefined.
+element_at([H|_],1) ->
+  H;
+element_at([_|T],X) ->
+  element_at(T,X-1);
+element_at([], _) ->
+  undefined.
 
 %  По учебнику Чезарини используя функцию
 % element_at([H|_], 1) ->
@@ -25,7 +25,7 @@
 % element_at([], _) ->
 %   undefined.
 
-%Используя case условие с 2-я аргументами
+%Используя case условие с передачей 2-х аргументов в один.
 % element_at(X, Y) ->
 %   element_at({X, Y}).
 
@@ -41,14 +41,15 @@
 %       undefined
 %   end.
 
-element_at(X, Y) ->
-  case Y of
-    0 ->
-      case X of
-        [H|_] -> H
-      end;
-    N when N>0 ->
-      case X of
-        [_|T] -> element_at(T, N-1)
-      end
-    end.
+% Используя case условие с 2-я аргументами
+% element_at(X, Y) ->
+%   case Y of
+%     0 ->
+%       case X of
+%         [H|_] -> H
+%       end;
+%     N when N>0 ->
+%       case X of
+%         [_|T] -> element_at(T, N-1)
+%       end
+%     end.
