@@ -6,11 +6,12 @@
 -module(p15).
 -export([replicate/2]).
 
-replicate(L, N) ->
-    replicate(L, N, N).
-replicate([_H | T], N, 0) ->
-    replicate(T, N, N);
-replicate([H | T], N, I) ->
-     [H | replicate([H | T], N, I-1)];
+replicate(L,C) ->
+    replicate(L,C,C).
+
+replicate([H|T], C, 1) ->
+    [H|replicate(T,C)];
+replicate([H|T], C, I) ->
+    [H|replicate([H|T], C, I-1)];
 replicate([],_,_) ->
     [].
