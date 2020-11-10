@@ -9,16 +9,19 @@
 -export([split/2]).
 
 split(B, S) ->
-  split(B, S, [], <<>>).
+  split(B, list_to_binary(S), [], <<>>).
 
-
-split(<<"-:-", Rest/binary>>, S, L, Acc) ->
-  split(Rest, S, [Acc|L], <<>>);
-split(<<X/utf8, Rest/binary>>, S, L, Acc) ->
-  split(Rest, S, L, <<Acc/binary, X/utf8>>);
-split(<<>>, _S, L, Acc) ->
-  lists:reverse([Acc|L]).
+split(B, S, L, Acc) ->
+  Ss = (byte_size(S)),
+  case B of
+    <<R:Ss/binary, Rest/binary>> when R=:=S ->
+      split(Rest, S, [Acc|L], <<>>);
+    <<X/utf8, Rest/binary>> ->
+      split(Rest, S, L, <<Acc/binary, X/utf8>>);
+    <<>> ->
+      lists:reverse([Acc|L])
+    end.
 
 %Используя встроенную функцию
-% words(B, S) ->
+% split(B, S) ->
 %   string:lexemes(B, S).
