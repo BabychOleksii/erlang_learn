@@ -15,10 +15,9 @@ last([_|T])->
 -ifdef(TEST).
 -include_lib("eunit/include/eunit.hrl").
 
-last_test_() ->
+last_test() ->
   [
-    ?_assert(last([a,b,c,d,e,f]) =:= f),
-    ?_assert(last([1,r,2,"34d",7,z,a]) =:= a)
+    ?_assert(last([a,b,c,d,e,f]) =:= f)
     ].
 
 -endif.
