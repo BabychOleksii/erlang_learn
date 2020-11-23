@@ -14,15 +14,15 @@
 -export([decode_modified/1]).
 
 decode_modified(List) ->
-  decode_modified(List, []).
+  decode_modified(List, 1, []).
 
-decode_modified([{1, Elem} | Tail], Acc) ->
-  decode_modified([Tail], [Elem|Acc]);
-decode_modified([{Iter, Elem} | Tail], Acc) ->
-  decode_modified([{Iter-1, Elem} | Tail], [Elem|Acc]);
-decode_modified([Head | Tail], Acc) ->
-  decode_modified([Tail], [Head|Acc]);
-decode_modified([], Acc) ->
+decode_modified([{Iter, Elem} | Tail], 1, Acc) ->
+  decode_modified([Elem | Tail], Iter, Acc);
+decode_modified([Elem | Tail], 1, Acc) ->
+  decode_modified(Tail, 1, [Elem | Acc]);
+decode_modified([Elem | Tail], Iter, Acc) ->
+  decode_modified([Elem | Tail], Iter-1, [Elem | Acc]);
+decode_modified([], _, Acc) ->
   p05:reverse(Acc).
 
 % Первое решение (без хвостовой рекурсии)

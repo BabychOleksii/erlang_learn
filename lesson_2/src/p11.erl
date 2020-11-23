@@ -24,6 +24,7 @@ encode_modified([Head | Tail], Iter, Acc) ->
 encode_modified([], _, Acc) ->
   p05:reverse(Acc).
 
+% Первое решение (без хвостовой рекурсии)
 % encode_modified(L) ->
 %   encode_modified(L, 1).
 

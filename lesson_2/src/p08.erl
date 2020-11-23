@@ -21,6 +21,7 @@ compress([Head, Head | Tail], Acc) ->
   compress(Tail, [Head | Acc]);
 compress([Head | Tail], Acc) ->
   compress(Tail, [Head | Acc]);
+
 compress([], Acc) ->
   p05:reverse(Acc).
 

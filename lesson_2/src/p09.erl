@@ -13,14 +13,14 @@
 -export([pack/1]).
 
 pack(List) ->
-  pack(List, []).
+  pack(List, [], []).
 
-pack([Head ,Head | Tail], Acc) ->
-  pack([Head | Tail], [Head | Acc]);
-pack([Head | Tail], Acc) ->
-  pack(Tail, [Head | Acc]);
-pack([], Acc) ->
-  p05:reverse(Acc).
+pack([Head, Head | Tail], Acc, Res) ->
+  pack([Head | Tail], [Head | Acc], Res);
+pack([Head | Tail], Acc, Res) ->
+  pack(Tail, [], [[Head| Acc] | Res]);
+pack([], _Acc, Res) ->
+  p05:reverse(Res).
 
 % Первое решение (без хвостовой рекурсии)
 % pack(L) ->

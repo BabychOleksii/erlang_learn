@@ -18,7 +18,7 @@ encode(List) ->
 encode([Head, Head | Tail], Iter, Acc) ->
   encode([Head | Tail], Iter+1, Acc);
 encode([Head | Tail], Iter, Acc) ->
-  encode(Tail, 1, [{Iter, Head}, Acc]);
+  encode(Tail, 1, [{Iter, Head} | Acc]);
 encode([], _, Acc) ->
   p05:reverse(Acc).
 
